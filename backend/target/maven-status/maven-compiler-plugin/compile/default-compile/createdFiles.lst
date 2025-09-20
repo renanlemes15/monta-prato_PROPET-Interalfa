@@ -1,0 +1,5 @@
+com\lemes\monta_prato_app\model\Prato.class
+com\lemes\monta_prato_app\controller\PratoController.class
+com\lemes\monta_prato_app\repository\PratoRepository.class
+com\lemes\monta_prato_app\service\PratoService.class
+com\lemes\monta_prato_app\MontaPratoAppApplication.class

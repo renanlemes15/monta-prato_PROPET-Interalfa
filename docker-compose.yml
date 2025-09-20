@@ -1,0 +1,43 @@
+services:
+  frontend:
+    container_name: react-frontend
+    build: ./frontend
+    ports:
+      - "3000:80"
+    #depends_on:
+#      backend:
+#        condition: service_healthy
+
+  backend:
+    container_name: spring-backend
+    build: ./backend
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://database:5432/montaprato
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=123456
+    depends_on:
+      database:
+        condition: service_healthy
+
+  database:
+    container_name: postgres-db
+    image: postgres:17
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=montaprato
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123456
+    volumes:
+      - pratos_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d montaprato"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+volumes:
+  pratos_data:

@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+
+.slider-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  border: 0;
+  height: 1.25rem;
+  width: 1.25rem;
+  border-radius: 50%;
+  background: var(--accent-color, #3b82f6);
+  cursor: grab;
+  margin-top: -0.25rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+.slider-input::-webkit-slider-thumb:active {
+  transform: scale(1.1);
+  cursor: grabbing;
+}
+
+.send-button:hover {
+  background: linear-gradient(to right, #16a34a, #2563eb);
+}
+.send-button:active {
+  transform: scale(0.95);
+}
+.send-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.5);
+}
+
+
+.modal-button:hover {
+  background-color: #2563eb;
+  box-shadow: 0 6px 10px -1px rgba(0,0,0,0.1), 0 2px 6px -1px rgba(0,0,0,0.08);
+}
+.modal-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+}
